@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named OutPutGrayImage
+
+# Build rule for target.
+OutPutGrayImage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 OutPutGrayImage
+.PHONY : OutPutGrayImage
+
+# fast build rule for target.
+OutPutGrayImage/fast:
+	$(MAKE) -f CMakeFiles/OutPutGrayImage.dir/build.make CMakeFiles/OutPutGrayImage.dir/build
+.PHONY : OutPutGrayImage/fast
+
+#=============================================================================
 # Target rules for targets named DisplayImage
 
 # Build rule for target.
@@ -150,6 +163,33 @@ DisplayImage.cpp.s:
 	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/DisplayImage.cpp.s
 .PHONY : DisplayImage.cpp.s
 
+OutPutGrayImage.o: OutPutGrayImage.cpp.o
+
+.PHONY : OutPutGrayImage.o
+
+# target to build an object file
+OutPutGrayImage.cpp.o:
+	$(MAKE) -f CMakeFiles/OutPutGrayImage.dir/build.make CMakeFiles/OutPutGrayImage.dir/OutPutGrayImage.cpp.o
+.PHONY : OutPutGrayImage.cpp.o
+
+OutPutGrayImage.i: OutPutGrayImage.cpp.i
+
+.PHONY : OutPutGrayImage.i
+
+# target to preprocess a source file
+OutPutGrayImage.cpp.i:
+	$(MAKE) -f CMakeFiles/OutPutGrayImage.dir/build.make CMakeFiles/OutPutGrayImage.dir/OutPutGrayImage.cpp.i
+.PHONY : OutPutGrayImage.cpp.i
+
+OutPutGrayImage.s: OutPutGrayImage.cpp.s
+
+.PHONY : OutPutGrayImage.s
+
+# target to generate assembly for a file
+OutPutGrayImage.cpp.s:
+	$(MAKE) -f CMakeFiles/OutPutGrayImage.dir/build.make CMakeFiles/OutPutGrayImage.dir/OutPutGrayImage.cpp.s
+.PHONY : OutPutGrayImage.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -158,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... OutPutGrayImage"
 	@echo "... DisplayImage"
 	@echo "... DisplayImage.o"
 	@echo "... DisplayImage.i"
 	@echo "... DisplayImage.s"
+	@echo "... OutPutGrayImage.o"
+	@echo "... OutPutGrayImage.i"
+	@echo "... OutPutGrayImage.s"
 .PHONY : help
 
 

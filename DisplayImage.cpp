@@ -16,6 +16,5 @@ int main(int argc, char** argv )
         return -1;
     }
     imwrite("output.jpg", image);
-    waitKey(0);
     return 0;
 }
