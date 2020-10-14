@@ -7,7 +7,7 @@ int main(int argc, char const *argv[])
 {
     if ( argc != 2 )
     {
-        printf("usage: OutPutGrayImage.out <Image_Path>\n");
+        printf("usage: OutputGrayImage.out <Image_Path>\n");
         return -1;
     }
 
