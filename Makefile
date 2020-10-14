@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /mnt/d/works/OpenCV-HellowWorld
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,17 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named OutPutGrayImage
+# Target rules for targets named OutputBinaryImage
 
 # Build rule for target.
-OutPutGrayImage: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 OutPutGrayImage
-.PHONY : OutPutGrayImage
+OutputBinaryImage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 OutputBinaryImage
+.PHONY : OutputBinaryImage
 
 # fast build rule for target.
-OutPutGrayImage/fast:
-	$(MAKE) -f CMakeFiles/OutPutGrayImage.dir/build.make CMakeFiles/OutPutGrayImage.dir/build
-.PHONY : OutPutGrayImage/fast
+OutputBinaryImage/fast:
+	$(MAKE) -f CMakeFiles/OutputBinaryImage.dir/build.make CMakeFiles/OutputBinaryImage.dir/build
+.PHONY : OutputBinaryImage/fast
+
+#=============================================================================
+# Target rules for targets named OutputGrayImage
+
+# Build rule for target.
+OutputGrayImage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 OutputGrayImage
+.PHONY : OutputGrayImage
+
+# fast build rule for target.
+OutputGrayImage/fast:
+	$(MAKE) -f CMakeFiles/OutputGrayImage.dir/build.make CMakeFiles/OutputGrayImage.dir/build
+.PHONY : OutputGrayImage/fast
 
 #=============================================================================
 # Target rules for targets named DisplayImage
@@ -163,32 +176,59 @@ DisplayImage.cpp.s:
 	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/DisplayImage.cpp.s
 .PHONY : DisplayImage.cpp.s
 
-OutPutGrayImage.o: OutPutGrayImage.cpp.o
+OutputBinaryImage.o: OutputBinaryImage.cpp.o
 
-.PHONY : OutPutGrayImage.o
+.PHONY : OutputBinaryImage.o
 
 # target to build an object file
-OutPutGrayImage.cpp.o:
-	$(MAKE) -f CMakeFiles/OutPutGrayImage.dir/build.make CMakeFiles/OutPutGrayImage.dir/OutPutGrayImage.cpp.o
-.PHONY : OutPutGrayImage.cpp.o
+OutputBinaryImage.cpp.o:
+	$(MAKE) -f CMakeFiles/OutputBinaryImage.dir/build.make CMakeFiles/OutputBinaryImage.dir/OutputBinaryImage.cpp.o
+.PHONY : OutputBinaryImage.cpp.o
 
-OutPutGrayImage.i: OutPutGrayImage.cpp.i
+OutputBinaryImage.i: OutputBinaryImage.cpp.i
 
-.PHONY : OutPutGrayImage.i
+.PHONY : OutputBinaryImage.i
 
 # target to preprocess a source file
-OutPutGrayImage.cpp.i:
-	$(MAKE) -f CMakeFiles/OutPutGrayImage.dir/build.make CMakeFiles/OutPutGrayImage.dir/OutPutGrayImage.cpp.i
-.PHONY : OutPutGrayImage.cpp.i
+OutputBinaryImage.cpp.i:
+	$(MAKE) -f CMakeFiles/OutputBinaryImage.dir/build.make CMakeFiles/OutputBinaryImage.dir/OutputBinaryImage.cpp.i
+.PHONY : OutputBinaryImage.cpp.i
 
-OutPutGrayImage.s: OutPutGrayImage.cpp.s
+OutputBinaryImage.s: OutputBinaryImage.cpp.s
 
-.PHONY : OutPutGrayImage.s
+.PHONY : OutputBinaryImage.s
 
 # target to generate assembly for a file
-OutPutGrayImage.cpp.s:
-	$(MAKE) -f CMakeFiles/OutPutGrayImage.dir/build.make CMakeFiles/OutPutGrayImage.dir/OutPutGrayImage.cpp.s
-.PHONY : OutPutGrayImage.cpp.s
+OutputBinaryImage.cpp.s:
+	$(MAKE) -f CMakeFiles/OutputBinaryImage.dir/build.make CMakeFiles/OutputBinaryImage.dir/OutputBinaryImage.cpp.s
+.PHONY : OutputBinaryImage.cpp.s
+
+OutputGrayImage.o: OutputGrayImage.cpp.o
+
+.PHONY : OutputGrayImage.o
+
+# target to build an object file
+OutputGrayImage.cpp.o:
+	$(MAKE) -f CMakeFiles/OutputGrayImage.dir/build.make CMakeFiles/OutputGrayImage.dir/OutputGrayImage.cpp.o
+.PHONY : OutputGrayImage.cpp.o
+
+OutputGrayImage.i: OutputGrayImage.cpp.i
+
+.PHONY : OutputGrayImage.i
+
+# target to preprocess a source file
+OutputGrayImage.cpp.i:
+	$(MAKE) -f CMakeFiles/OutputGrayImage.dir/build.make CMakeFiles/OutputGrayImage.dir/OutputGrayImage.cpp.i
+.PHONY : OutputGrayImage.cpp.i
+
+OutputGrayImage.s: OutputGrayImage.cpp.s
+
+.PHONY : OutputGrayImage.s
+
+# target to generate assembly for a file
+OutputGrayImage.cpp.s:
+	$(MAKE) -f CMakeFiles/OutputGrayImage.dir/build.make CMakeFiles/OutputGrayImage.dir/OutputGrayImage.cpp.s
+.PHONY : OutputGrayImage.cpp.s
 
 # Help Target
 help:
@@ -196,16 +236,20 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... OutPutGrayImage"
+	@echo "... OutputBinaryImage"
+	@echo "... rebuild_cache"
+	@echo "... OutputGrayImage"
 	@echo "... DisplayImage"
 	@echo "... DisplayImage.o"
 	@echo "... DisplayImage.i"
 	@echo "... DisplayImage.s"
-	@echo "... OutPutGrayImage.o"
-	@echo "... OutPutGrayImage.i"
-	@echo "... OutPutGrayImage.s"
+	@echo "... OutputBinaryImage.o"
+	@echo "... OutputBinaryImage.i"
+	@echo "... OutputBinaryImage.s"
+	@echo "... OutputGrayImage.o"
+	@echo "... OutputGrayImage.i"
+	@echo "... OutputGrayImage.s"
 .PHONY : help
 
 
